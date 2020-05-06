@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Data_Logger.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Data_Logger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="133,21,0,0" Text="DATA LOGGER" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="35sp" />
+        <TextBlock x:Name="unitsTitle" HorizontalAlignment="Left" Margin="26,296,0,0"  Text="Units Of Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25sp"/>
+        <RadioButton x:Name="radImperial" GroupName="unitsGroup" Content="Imperial" Tag="Imperial" FontSize="20sp" Checked="unitOfMeasure_Checked" Margin="62,334,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="radMetric" GroupName="unitsGroup" Content="Metric" Tag="Metric" FontSize="20sp" Checked="unitOfMeasure_Checked" Margin="62,372,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="measure" HorizontalAlignment="Left" Margin="263,97,0,0" Text="{x:Bind displayData.Measurement, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="measureHistory" HorizontalAlignment="Left" Margin="263,296,0,0" Text="{Binding History}" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="214"/>
+        <Button x:Name="startStopButton" Content="" Background="LightGray" Margin="65,428,0,0" VerticalAlignment="Top" Click="startStopButton_Click" Width="114" Height="32"/>
+        <Button Content="Display History" Margin="65,478,0,0" VerticalAlignment="Top" Click="displayHistoryButton_Click" Width="114" Height="32"/>
+        <TextBox x:Name="altMeasure" HorizontalAlignment="Left" Margin="263,154,0,0" Text="{x:Bind displayData.AltMeasurement, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="timeStamp" HorizontalAlignment="Left" Margin="263,213,0,0" Text="{x:Bind displayData.TimeStamp, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,92,0,0" Text="Current Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20sp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="67,149,0,0" Text="Alternate Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20sp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="125,216,0,0" Text="Time Stamp" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20sp"/>
+        <TextBlock x:Name="currentMeasureChoice" HorizontalAlignment="Left" Margin="156,119,0,0" Text="Imperial [in]" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15sp" />
+        <TextBlock x:Name="altMeasureChoice" HorizontalAlignment="Left" Margin="156,176,0,0" Text="Metric [cm]" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15sp" />
+        <TextBlock HorizontalAlignment="Left" Margin="67,546,0,0" Text="*Click Start button to display data every 15 seconds" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="67,570,0,0" Text="*Toggle between Units of Measure to see alternate values" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="67,594,0,0" Text="*Display history to see last 10 standard measurements" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
